@@ -7,7 +7,7 @@ module.exports = {
         'midnight-blue': '#191970',
         'golden-yellow': '#FFC000',
         'electric-blue': '#7DF9FF',
-        'gray-icon': '#36454F',
+        'gray-icon': '#D3D3D3',
       },
     },
   },

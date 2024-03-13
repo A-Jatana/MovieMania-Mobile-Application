@@ -1,18 +1,26 @@
 import { View, Text, Platform, TouchableOpacity, ScrollView } from 'react-native'
 import { useFonts } from 'expo-font';
-import React from 'react'
+import { React, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Bars3CenterLeftIcon, MagnifyingGlassIcon } from 'react-native-heroicons/outline'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar'
+import TrendingMovies from '../components/trendingMovies'
 
 
 const ios = Platform.OS === 'ios'
 export default function HomeScreen() {
-    // Load custom fonts
-    const [fontsLoaded] = useFonts({
-      Audiowide: require('../assets/fonts/Audiowide-Regular.ttf'), // path to font file
-    });
+  // Trending movies
+  const [trending, setTrending] = useState([1,2,3])
+  // Load custom fonts
+  const [fontsLoaded] = useFonts({
+    Audiowide: require('../assets/fonts/Audiowide-Regular.ttf'), // path to font file
+  });
+
+  // Check if fonts are loaded before rendering
+  if (!fontsLoaded) {
+    return null; // or any loading indicator
+  }
 
   return (
     <View className="flex-1 bg-midnight-blue">
@@ -30,6 +38,15 @@ export default function HomeScreen() {
             </TouchableOpacity>
         </View>
       </SafeAreaView>
+
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{paddingBottom: 10}}
+      >
+        {/* Trending movies */}
+        <TrendingMovies data={trending} />
+
+      </ScrollView>
 
       
     </View>
