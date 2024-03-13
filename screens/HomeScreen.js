@@ -6,12 +6,18 @@ import { Bars3CenterLeftIcon, MagnifyingGlassIcon } from 'react-native-heroicons
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar'
 import TrendingMovies from '../components/trendingMovies'
+import MovieList from '../components/movieList'
 
 
 const ios = Platform.OS === 'ios'
 export default function HomeScreen() {
   // Trending movies
   const [trending, setTrending] = useState([1,2,3])
+  // Coming soon movies
+  const [comingSoon, setComingSoon] = useState([1,2,3])
+  // highly rated movies
+  const [highlyRated, setHighlyRated] = useState([1,2,3])
+
   // Load custom fonts
   const [fontsLoaded] = useFonts({
     Audiowide: require('../assets/fonts/Audiowide-Regular.ttf'), // path to font file
@@ -45,6 +51,12 @@ export default function HomeScreen() {
       >
         {/* Trending movies */}
         <TrendingMovies data={trending} />
+
+        {/* Coming soon movies row */}
+        <MovieList title="Coming Soon" data={comingSoon}/>
+
+        {/* Highly rated movies row */}
+        <MovieList title="Highly Rated" data={highlyRated}/>
 
       </ScrollView>
 
