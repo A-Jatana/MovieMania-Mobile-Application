@@ -6,6 +6,8 @@ import { ChevronLeftIcon } from 'react-native-heroicons/outline';
 import { HeartIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import Cast from '../components/cast';
+import MovieList from '../components/movieList';
 
 var {width, height} = Dimensions.get('window');
 const ios = Platform.OS === 'ios';
@@ -15,6 +17,8 @@ export default function MovieScreen() {
     const {params: item} = useRoute();
     const [liked, setLiked] = useState(false);
     const navigation = useNavigation();
+    const [cast, setCast] = useState([1,2,3,4,5]);
+    const [similarMovies, setSimilarMovies] = useState([1,2,3,4,5]);
     useEffect(()=>{
         //call the movie details API
 
@@ -81,6 +85,12 @@ export default function MovieScreen() {
                 Now retired and living in self-imposed exile in the world's most glamorous city, Poirot reluctantly attends a seance at a decaying, haunted palazzo. He soons gets thrust into a sinister world of shadows and secrets when one of the guests is murdered.
             </Text>
         </View>
+
+        {/*cast*/}
+        <Cast navigation={navigation} cast={cast}/>
+
+        {/* similar movies */}
+        <MovieList title="Similar Movies" hideSeeAll = {true} data={similarMovies}/>
 
 
     </ScrollView>
