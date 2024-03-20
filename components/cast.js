@@ -13,7 +13,7 @@ export default function Cast({cast, navigation}) {
         contentContainerStyle={{paddingHorizontal: 15}}
         >
             {
-                cast && cast.map((item, index)=>{
+                cast && cast.map((person, index)=>{
                     return (
                         <TouchableOpacity 
                             key={index}
