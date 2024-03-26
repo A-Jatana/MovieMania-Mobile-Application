@@ -8,6 +8,7 @@ module.exports = {
         'golden-yellow': '#FFC000',
         'electric-blue': '#7DF9FF',
         'gray-icon': '#D3D3D3',
+        'table-person': '#393990'
       },
     },
   },

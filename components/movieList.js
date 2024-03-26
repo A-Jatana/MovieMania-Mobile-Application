@@ -9,7 +9,7 @@ export default function MovieList({title, hideSeeAll, data}) {
   return (
     <View className="mb-8 space-y-4">
         <View className="mx-4 flex-row justify-between items-center">
-            <Text className="text-gray-icon text-xl">{title}</Text>
+            <Text className="text-white text-xl">{title}</Text>
             {
                 hideSeeAll? null: 
                 <TouchableOpacity>
